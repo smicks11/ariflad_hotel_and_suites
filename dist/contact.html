@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from preview.colorlib.com/theme/halo/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 23 Jan 2021 09:37:31 GMT -->
+
 
 <head>
     <title>Ariflad Hotels & Suites</title>
@@ -79,52 +79,25 @@
             <div class="container p-0">
                 <div class="row">
                     <div class="col-xl-8 offset-xl-4">
-                        <form class="contact-form" method="GET" action="mailto:SteveAdebiyi@yahoo.com" enctype="text/plain">
+                        <form class="contact-form" action="POST" data-netlify="true">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Your name">
+                                    <input type="text" placeholder="Your name" id="name" name="name">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" placeholder="E-mail">
+                                    <input type="email" placeholder="E-mail" id="email" name="email">
                                 </div>
                                 <div class="col-md-12">
-                                    <input type="text" placeholder="Subject">
-                                    <textarea placeholder="How may we help you?"></textarea>
+                                    <input type="text" placeholder="Phone Number" name="tel" id="tel">
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" placeholder="Subject" name="subject" id="subject">
+                                    <textarea placeholder="How may we help you?" name="message" id="message"></textarea>
                                     <button class="site-btn light">Send</button>
                                 </div>
-                                <input type="hidden" name="body" />
+                                <!-- <input type="hidden" name="body" /> -->
                             </div>
                         </form>
-                        <script>
-                            var form = document.getElementsByTagName('form')[0];
-                            form.addEventListener('submit', contact, false);
-
-                            function contact(e) {
-                                // Prevent Default Form Submission
-                                e.preventDefault();
-
-                                var target = e.target || e.srcElement;
-                                var i = 0;
-                                var message = '';
-
-                                // Loop Through All Input Fields
-                                for (i = 0; i < target.length; ++i) {
-                                    // Check to make sure it's a value. Don't need to include Buttons
-                                    if (target[i].type != 'text' && target[i].type != 'textarea') {
-                                        // Skip to next input since this one doesn't match our rules
-                                        continue;
-                                    }
-
-                                    // Add Input Name and value followed by a line break
-                                    message += target[i].name + ': ' + target[i].value + "\r\n";
-                                }
-                                // Modify the hidden body input field that is required for the mailto: scheme
-                                target.elements["body"].value = message;
-
-                                // Submit the form since we previously stopped it. May cause recursive loop in some browsers? Should research this.
-                                this.submit();
-                            }
-                        </script>
                     </div>
                 </div>
             </div>
